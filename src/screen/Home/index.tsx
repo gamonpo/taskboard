@@ -26,7 +26,9 @@ export interface DataListProps {
 }
 
 const Home: React.FC = () => {
-  const { board, setBoard, dataKey } = useBoard();
+  const {
+    board, setBoard, setProject, dataKey,
+  } = useBoard();
 
   const [modal, setModal] = useState<boolean>(false);
   const [title, setTitle] = useState<string>();
@@ -69,6 +71,14 @@ const Home: React.FC = () => {
 
       return Alert.alert('Error', 'Could not save');
     }
+  };
+
+  const goBoard = (id:string) => {
+    const filterredProject = board.find((p) => p.id === id);
+
+    setProject(filterredProject);
+
+    navigation.navigate('Project');
   };
 
   useFocusEffect(
@@ -115,7 +125,7 @@ const Home: React.FC = () => {
         renderItem={({ item }) => (
           <ProjectItem
             title={item.title}
-            onPress={() => navigation.navigate('Project', { project: item })}
+            onPress={() => goBoard(item.id)}
 
           />
         )}

@@ -13,7 +13,6 @@ const ProjectItem: React.FC<ProjectProps> = ({ title, onPress }:ProjectProps) =>
 
     <Footer>
       <Text>{title}</Text>
-
     </Footer>
   </Container>
 );

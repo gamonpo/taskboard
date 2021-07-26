@@ -3,12 +3,15 @@ import React from 'react';
 import {
   Container,
   Text,
+  Tag,
+  Description,
 } from './styles';
 
 export interface TaskProps {
   id: string;
   title: string;
   description?: string;
+  tag?: string;
 }
 
 interface Props {
@@ -17,7 +20,16 @@ interface Props {
 
 const TaskItem: React.FC<Props> = ({ data }:Props) => (
   <Container>
-    <Text>{data.title}</Text>
+    <Tag>
+      {data.tag}
+    </Tag>
+    <Text>
+      {data.title}
+    </Text>
+    <Description>
+      {data.description}
+    </Description>
+
   </Container>
 );
 

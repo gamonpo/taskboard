@@ -95,7 +95,11 @@ export const Input = styled.TextInput`
   border-width: 0.1px;
   border-color: ${({ theme }) => theme.colors.text_dark};
 
+  background-color: ${({ theme }) => theme.colors.text_light};
+
   padding: 5px;
+
+  margin: 5px;
 `;
 
 export const Add = styled(BorderlessButton)`
@@ -121,4 +125,37 @@ export const Remove = styled(BorderlessButton)`
   align-items: center;
 
   background-color: ${({ theme }) => theme.colors.primary_medium};
+`;
+
+export const Card = styled.View`
+  width: ${RFPercentage(40)}px;
+  height: ${RFPercentage(40)}px;
+
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  top: ${RFPercentage(25)}px;
+
+  border-radius: 5px;
+
+  background-color:  ${({ theme }) => theme.colors.background_light};
+`;
+
+export const Actions = styled.View`
+  flex-direction: row;
+`;
+
+export const Button = styled.TouchableOpacity`
+  width: ${RFPercentage(15)}px;
+  height: ${RFPercentage(5)}px;
+
+  top: ${RFPercentage(5)}px;
+
+  margin: 5px;
+
+  background-color: ${({ theme }) => theme.colors.primary_light};
+
+
+  justify-content: center;
+  align-items: center;
 `;

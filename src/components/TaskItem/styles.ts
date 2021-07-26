@@ -3,7 +3,7 @@ import { RFValue, RFPercentage } from 'react-native-responsive-fontsize';
 import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled(RectButton)`
-  height: ${RFPercentage(5)}px;
+  height: ${RFPercentage(10)}px;
   width: ${RFPercentage(25)}px;
   border-radius: 5px;
 
@@ -20,4 +20,16 @@ export const Text = styled.Text`
   color: ${({ theme }) => theme.colors.text_dark};
   font-size: ${RFValue(12)}px;
   font-family: ${({ theme }) => theme.fonts.medium};
+`;
+
+export const Description = styled.Text`
+  color: ${({ theme }) => theme.colors.text_dark};
+  font-size: ${RFValue(12)}px;
+  font-family: ${({ theme }) => theme.fonts.regular};
+`;
+
+export const Tag = styled.Text`
+  color: ${({ theme }) => theme.colors.text_dark};
+  font-size: ${RFValue(12)}px;
+  font-family: ${({ theme }) => theme.fonts.bold};
 `;

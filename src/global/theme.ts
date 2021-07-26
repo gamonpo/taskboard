@@ -11,6 +11,7 @@ export default {
     add_icon: '#60BD4E',
 
     background: '#F4F5F7',
+    background_light: '#EEE',
   },
 
   fonts: {
