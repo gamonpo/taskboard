@@ -8,6 +8,7 @@ import {
 
 import Routes from './src/routes';
 import theme from './src/global/theme';
+import { BoardProvider } from './src/hooks/Board';
 
 const Taskboard: React.FC = () => {
   const [fontsLoaded] = useFonts({
@@ -23,7 +24,9 @@ const Taskboard: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <StatusBar barStyle="light-content" />
-      <Routes />
+      <BoardProvider>
+        <Routes />
+      </BoardProvider>
     </ThemeProvider>
   );
 };

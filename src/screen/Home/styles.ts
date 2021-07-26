@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import { FlatList } from 'react-native';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { Feather } from '@expo/vector-icons';
-import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
+import { BorderlessButton } from 'react-native-gesture-handler';
 import { DataListProps } from '.';
 
 export const Container = styled.View`
@@ -35,6 +35,9 @@ export const AddProject = styled(BorderlessButton)`
 
   justify-content: center;
   align-items: center;
+  align-self: flex-end;
+
+  margin: 25px;
 
   background-color: ${({ theme }) => theme.colors.add_icon};
 

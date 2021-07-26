@@ -1,8 +1,11 @@
-import { useNavigation } from '@react-navigation/native';
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { Alert, Modal } from 'react-native';
 import uuid from 'react-native-uuid';
 import ProjectItem from '../../components/ProjectItem';
+
+import { useBoard } from '../../hooks/Board';
 
 import {
   Container,
@@ -23,13 +26,21 @@ export interface DataListProps {
 }
 
 const Home: React.FC = () => {
-  const [boards, setBoard] = useState<DataListProps[]>([]);
+  const { board, setBoard, dataKey } = useBoard();
+
   const [modal, setModal] = useState<boolean>(false);
   const [title, setTitle] = useState<string>();
 
   const navigation = useNavigation();
 
-  const createBoard = () => {
+  const loadBoard = async () => {
+    const response = await AsyncStorage.getItem(dataKey);
+    const list = response ? JSON.parse(response) : [];
+
+    setBoard(list);
+  };
+
+  const createBoard = async () => {
     if (title === '') {
       return Alert.alert('Error', 'A board must be name it');
     }
@@ -37,12 +48,34 @@ const Home: React.FC = () => {
     const newBoard = {
       id: String(uuid.v4()),
       title,
+      todo: [],
+      doing: [],
+      done: [],
     };
 
-    setBoard([...boards, newBoard]);
-    setTitle('');
-    setModal(false);
+    try {
+      const data = await AsyncStorage.getItem(dataKey);
+      const currentData = data ? JSON.parse(data) : [];
+
+      const dataFormatted = [...currentData, newBoard];
+
+      await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted));
+
+      setBoard([...board, newBoard]);
+      setTitle('');
+      setModal(false);
+    } catch (error) {
+      setModal(false);
+
+      return Alert.alert('Error', 'Could not save');
+    }
   };
+
+  useFocusEffect(
+    useCallback(() => {
+      loadBoard();
+    }, []),
+  );
 
   return (
     <Container>
@@ -50,10 +83,6 @@ const Home: React.FC = () => {
         <Text>Boards</Text>
 
       </Header>
-
-      <AddProject onPress={() => setModal(true)}>
-        <Icon name="plus" />
-      </AddProject>
 
       <Modal
         visible={modal}
@@ -81,7 +110,7 @@ const Home: React.FC = () => {
       </Modal>
 
       <List
-        data={boards}
+        data={board}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <ProjectItem
@@ -91,6 +120,10 @@ const Home: React.FC = () => {
           />
         )}
       />
+
+      <AddProject onPress={() => setModal(true)}>
+        <Icon name="plus" />
+      </AddProject>
     </Container>
   );
 };
