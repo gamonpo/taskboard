@@ -104,7 +104,7 @@ const Home: React.FC = () => {
             onChangeText={setTitle}
             autoCapitalize="none"
             autoCorrect={false}
-            placeholder="Project name"
+            placeholder="Board name"
           />
 
           <Actions>

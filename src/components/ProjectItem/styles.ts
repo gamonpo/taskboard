@@ -5,7 +5,7 @@ import { Feather } from '@expo/vector-icons';
 
 export const Container = styled.View`
   height: ${RFPercentage(15)}px;
-  width: ${RFPercentage(20)}px;
+  width: ${RFPercentage(25)}px;
 
   margin: 5px;
 

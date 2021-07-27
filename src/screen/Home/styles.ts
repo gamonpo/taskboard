@@ -37,7 +37,7 @@ export const AddProject = styled(BorderlessButton)`
   align-items: center;
   align-self: flex-end;
 
-  margin: 25px;
+  margin: 10px;
 
   background-color: ${({ theme }) => theme.colors.add_icon};
 
@@ -51,7 +51,6 @@ export const List = styled(FlatList as new () => FlatList<DataListProps>).attrs(
   showsVerticalScrollIndicator: false,
   numColumns: 2,
 })`
-  margin: 10px;
 `;
 
 export const Card = styled.View`

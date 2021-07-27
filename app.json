@@ -1,8 +1,11 @@
 {
+  "name": "taskboard",
+  "displayName": "taskboard",
   "expo": {
     "name": "taskboard",
     "slug": "taskboard",
     "version": "1.0.0",
+    "icon": "./assets/logo.png",
     "assetBundlePatterns": [
       "**/*"
     ],
@@ -10,5 +13,4 @@
       "package": "com.gamonpo.taskboard"
     }
   },
-  "name": "taskboard"
 }
