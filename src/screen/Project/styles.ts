@@ -3,7 +3,7 @@ import { FlatList } from 'react-native';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { Feather } from '@expo/vector-icons';
 import { BorderlessButton } from 'react-native-gesture-handler';
-import { ToDoListProps } from '.';
+import { TaskProps } from '../../components/TaskItem';
 
 export const Container = styled.View`
   flex: 1;
@@ -61,7 +61,7 @@ export const CardList = styled.View`
 
 `;
 
-export const ToDoList = styled(FlatList as new () => FlatList<ToDoListProps>).attrs({
+export const ToDoList = styled(FlatList as new () => FlatList<TaskProps>).attrs({
   showsVerticalScrollIndicator: false,
   contentContainerStyle: {
     justifyContent: 'center',

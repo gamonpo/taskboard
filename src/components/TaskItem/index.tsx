@@ -10,8 +10,8 @@ import {
 export interface TaskProps {
   id: string;
   title: string;
-  description?: string;
-  tag?: string;
+  description: string;
+  tag: string;
 }
 
 interface Props {

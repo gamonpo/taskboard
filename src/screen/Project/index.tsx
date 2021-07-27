@@ -25,12 +25,8 @@ import {
   Button,
 } from './styles';
 
-import TaskItem, { TaskProps } from '../../components/TaskItem';
+import TaskItem from '../../components/TaskItem';
 import { useBoard } from '../../hooks/Board';
-
-export interface ToDoListProps extends TaskProps {
-  id: string;
-}
 
 interface RemoveProps {
   id: string;
@@ -53,7 +49,7 @@ const Project: React.FC = () => {
   const navigation = useNavigation();
 
   const addTask = async (type:string) => {
-    if (type === 'todo' && todoIn !== undefined) {
+    if (type === 'todo' && todoIn !== undefined && description !== undefined && tag !== undefined) {
       const newTask = {
         id: String(uuid.v4()),
         title: todoIn,
@@ -79,7 +75,7 @@ const Project: React.FC = () => {
       setDescriptionIn(undefined);
       setTag(undefined);
       setModalTodo(false);
-    } else if (type === 'doing' && doingIn !== undefined) {
+    } else if (type === 'doing' && doingIn !== undefined && description !== undefined && tag !== undefined) {
       const newTask = {
         id: String(uuid.v4()),
         title: doingIn,
@@ -105,7 +101,7 @@ const Project: React.FC = () => {
       setDescriptionIn(undefined);
       setTag(undefined);
       setModalDoing(false);
-    } else if (type === 'done' && doneIn !== undefined) {
+    } else if (type === 'done' && doneIn !== undefined && description !== undefined && tag !== undefined) {
       const newTask = {
         id: String(uuid.v4()),
         title: doneIn,
@@ -132,7 +128,7 @@ const Project: React.FC = () => {
       setTag(undefined);
       setModalDone(false);
     } else {
-      Alert.alert('Erro', 'A task must be name it');
+      Alert.alert('Erro', 'A field must be filled');
     }
   };
 
@@ -185,6 +181,22 @@ const Project: React.FC = () => {
       } catch (error) {
         return Alert.alert('Error', 'Could not save');
       }
+    }
+  };
+
+  const cancelOption = (type:string) => {
+    setDescriptionIn(undefined);
+    setTag(undefined);
+
+    if (type === 'todo') {
+      setTodoIn(undefined);
+      setModalTodo(false);
+    } else if (type === 'doing') {
+      setDoingIn(undefined);
+      setModalDoing(false);
+    } else if (type === 'done') {
+      setDoneIn(undefined);
+      setModalDone(false);
     }
   };
 
@@ -393,7 +405,7 @@ const Project: React.FC = () => {
                           <Button onPress={() => addTask('done')}>
                             <Icon name="check" />
                           </Button>
-                          <Button onPress={() => setModalDone(false)}>
+                          <Button onPress={() => cancelOption('done')}>
                             <Icon name="x" />
                           </Button>
                         </Actions>
