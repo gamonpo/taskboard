@@ -124,6 +124,7 @@ const Home: React.FC = () => {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <ProjectItem
+            id={item.id}
             title={item.title}
             onPress={() => goBoard(item.id)}
 
