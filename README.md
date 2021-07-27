@@ -23,7 +23,7 @@
 - Create/delete tasks;
 - List boards;
 - List tasks;
-- Show tasks details;
+- Show tasks details(name, description and tag);
 ## Screenshots
 
 ### Boards
