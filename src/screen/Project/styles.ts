@@ -138,7 +138,7 @@ export const Card = styled.View`
 
   border-radius: 5px;
 
-  background-color:  ${({ theme }) => theme.colors.background_light};
+  background-color:  ${({ theme }) => theme.colors.background};
 `;
 
 export const Actions = styled.View`

@@ -245,6 +245,7 @@ const Project: React.FC = () => {
                           autoCapitalize="none"
                           autoCorrect={false}
                           placeholder="Card name"
+                          maxLength={20}
                         />
 
                         <Input
@@ -253,6 +254,7 @@ const Project: React.FC = () => {
                           autoCapitalize="none"
                           autoCorrect={false}
                           placeholder="Card description"
+                          multiline
                         />
 
                         <Input
@@ -261,6 +263,7 @@ const Project: React.FC = () => {
                           autoCapitalize="none"
                           autoCorrect={false}
                           placeholder="Card tag"
+                          maxLength={20}
                         />
 
                         <Actions>
@@ -314,6 +317,7 @@ const Project: React.FC = () => {
                           autoCapitalize="none"
                           autoCorrect={false}
                           placeholder="Card name"
+                          maxLength={20}
                         />
 
                         <Input
@@ -322,6 +326,8 @@ const Project: React.FC = () => {
                           autoCapitalize="none"
                           autoCorrect={false}
                           placeholder="Card description"
+                          multiline
+
                         />
 
                         <Input
@@ -330,6 +336,7 @@ const Project: React.FC = () => {
                           autoCapitalize="none"
                           autoCorrect={false}
                           placeholder="Card tag"
+                          maxLength={20}
                         />
 
                         <Actions>
@@ -383,6 +390,7 @@ const Project: React.FC = () => {
                           autoCapitalize="none"
                           autoCorrect={false}
                           placeholder="Card name"
+                          maxLength={20}
                         />
 
                         <Input
@@ -391,6 +399,7 @@ const Project: React.FC = () => {
                           autoCapitalize="none"
                           autoCorrect={false}
                           placeholder="Card description"
+                          multiline
                         />
 
                         <Input
@@ -399,6 +408,7 @@ const Project: React.FC = () => {
                           autoCapitalize="none"
                           autoCorrect={false}
                           placeholder="Card tag"
+                          maxLength={20}
                         />
 
                         <Actions>
